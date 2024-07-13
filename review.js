@@ -20,8 +20,9 @@ const movieTitle = document.querySelector('.movie_title');
 const moviePoster = document.querySelector('#movie_poster');
 const moviePlot = document.querySelector('.movie_description > .info_sub_content');
 const actors = document.querySelector('.cast_list');
-
 const releaseDate = document.querySelector('.movie_release_date');
+const director = document.querySelector('.director_name');
+const movieGenre = document.querySelector('.genre_list');
 
 
 
@@ -32,11 +33,12 @@ async function movieInfo(){
     const movie = await axios.get(movieUrl);
     
 
-
+    // 데이터 공통 경로 변수에 담기
     const movieShort = movie.data.Data[0].Result[0];
 
-    console.log(movie);
+    console.log("영화 데이터 전체", movie);
     console.log('날짜 데이터 가져온것 >>', movieShort.repRlsDate);
+    console.log("링크>>", movieShort.vods.vod[0].vodUrl);
     // console.log(movieShort.plots.plot[0].plotText);
     // console.log(movieShort.actors.actor[0].actorNm);
     // console.log(movie.data.Data[0].Result[0].posters);
@@ -44,11 +46,15 @@ async function movieInfo(){
 
 
     // 영화 포스터 가져오기
-    moviePoster.innerHTML = `<img src="${movieShort.posters}" alt="${movieShort.title}">`;    
+    // moviePoster.innerHTML = `<img src="${movieShort.posters}" alt="${movieShort.title}">`;    
     
+    // 영화 예고편 가져오기
+    // if(movieShort.vods.vod[1].vodUrl === ""){
+    // }
+
 
     // 영화 제목 가져오기
-    movieTitle.textContent = movieShort.title;
+    // movieTitle.textContent = movie.data.KMAQuery;
 
 
     // 영화 줄거리 가져오기
@@ -66,6 +72,22 @@ async function movieInfo(){
       return releaseDate.textContent = `${year}-${month}-${day}`;
     }
     formatDate(date1);
+
+
+    // 영화감독 가져오기
+    director.textContent = movieShort.directors.director[0].directorNm;
+
+
+    // 영화 장르 가져오기
+    const genre = movieShort.genre;
+    const genreArr = genre.split(",");
+    console.log("영화 장르 >>", genreArr);
+
+    genreArr.forEach((gen) => {
+      const genreLi = document.createElement('li');
+      genreLi.textContent = gen;
+      movieGenre.appendChild(genreLi);
+    } )
 
 
     // 출연 배우 목록 가져오기
