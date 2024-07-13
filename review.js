@@ -13,14 +13,16 @@ console.log('!!');
 // 영화 api 불러오기
 
 const key = "BNUTWI8LOC2C99593QD4";
-const movieUrl = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title="파묘"&ServiceKey=${key}`;
+const movieUrl = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title="범죄도시"&ServiceKey=${key}`;
+
 
 const movieTitle = document.querySelector('.movie_title');
 const moviePoster = document.querySelector('#movie_poster');
 const moviePlot = document.querySelector('.movie_description > .info_sub_content');
-
 const actors = document.querySelector('.cast_list');
-const actorLi = document.createElement('li');
+
+const releaseDate = document.querySelector('.movie_release_date');
+
 
 
 async function movieInfo(){
@@ -28,20 +30,53 @@ async function movieInfo(){
 
   try{
     const movie = await axios.get(movieUrl);
+    
+
+
     const movieShort = movie.data.Data[0].Result[0];
+
     console.log(movie);
+    console.log('날짜 데이터 가져온것 >>', movieShort.repRlsDate);
     // console.log(movieShort.plots.plot[0].plotText);
     // console.log(movieShort.actors.actor[0].actorNm);
     // console.log(movie.data.Data[0].Result[0].posters);
     // console.log(movie.data.Data[0].Result[0].vods.vod[1].vodUrl);
+
+
+    // 영화 포스터 가져오기
+    moviePoster.innerHTML = `<img src="${movieShort.posters}" alt="${movieShort.title}">`;    
+    
+
+    // 영화 제목 가져오기
     movieTitle.textContent = movieShort.title;
-    moviePoster.textContent = `<img src="${movieShort.posters}" alt="${movieShort.title}">`;
-    moviePlot.textContent = `<p>${movieShort.plots.plot[0].plotText}</p>`
-    for(i = 0; i < 5; i++){
-      const actorText = document.createTextNode(movieShort.actors.actor[i].actorNm);
-      actors.appendChild(actorLi);
-      actorLi.appendChild(actorText);
+
+
+    // 영화 줄거리 가져오기
+    moviePlot.textContent = `${movieShort.plots.plot[0].plotText}`
+
+
+    // 영화 개봉일 가져오기
+    const date1 = movieShort.repRlsDate;
+
+    function formatDate(dateStr) {
+      const year = dateStr.substring(0, 4);
+      const month = dateStr.substring(4, 6);
+      const day = dateStr.substring(6, 8);
+      
+      return releaseDate.textContent = `${year}-${month}-${day}`;
     }
+    formatDate(date1);
+
+
+    // 출연 배우 목록 가져오기
+    for(i = 0; i < 5; i++){
+      const actorLi = document.createElement('li');
+      actorLi.textContent = `${movieShort.actors.actor[i].actorNm}`;
+      actors.appendChild(actorLi);
+    }
+
+
+
     
   }catch(error){
     console.log(error);
@@ -49,8 +84,6 @@ async function movieInfo(){
 }
 
 movieInfo();
-
-
 
 
 
