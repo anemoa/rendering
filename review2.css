@@ -1,7 +1,7 @@
 body{
     background-color: #141414;
-    height: 100vh;
-    display: grid;
+    /* height: 100vh;
+    display: grid; */
     place-items: center;
     overflow: hidden;
 }
@@ -15,14 +15,18 @@ li{
 }
 
 
-
-#review_container{
-    display: flex;
-    justify-content: space-between;
+#page_container{
     width: 80%;
     max-width: 1300px;
     margin: 0 auto;
 }
+
+#movie_info_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 .poster_container{
     max-width: 205px;

@@ -10,66 +10,72 @@
   <script defer src="./review2.js"></script>
 </head>
 <body>
-  <main id="review_container">
-    <section class="poster_container">
-      <div class="poster_box"></div>
-      
-      <div class="rating_box">
-        <div class="rating">
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-          <i class="rating__star far fa-star"></i>
-        </div>
-      </div>x
-    </section>
-
-    <section class="info_container">
-      <article class="sub_info_box">
-        <div class="detail_info_box">
-          <div class="movie_title">
-            <p class="contents_title">
-            </p>
+  <main id="page_container">
+    <div id="movie_info_container">
+      <section class="poster_container">
+        <article class="poster_box"></article>
+        
+        <div class="rating_box">
+          <div class="rating">
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
           </div>
-
-          <div class="sub_detail_box">
-            <div class="detail_box">
+        </div>x
+      </section>
+  
+      <section class="info_container">
+        <article class="sub_info_box">
+          <div class="detail_info_box">
+            <div class="movie_title">
               <p class="contents_title">
-                Details
               </p>
-
-              <ul class="detail_info_list">
-                <li>
-                  Director: <span class="director"></span>
-                </li>
-                <li>
-                  Genre: <span class="genre"></span>
-                </li>
-                <li>
-                  Release Date: <span class="release_date"></span>
-                </li>
-              </ul>
             </div>
-            <div class="cast_box">
-              <p class="contents_title">Cast</p>
-              <ul class="cast_list">
-              </ul>
+  
+            <div class="sub_detail_box">
+              <div class="detail_box">
+                <p class="contents_title">
+                  Details
+                </p>
+  
+                <ul class="detail_info_list">
+                  <li>
+                    Director: <span class="director"></span>
+                  </li>
+                  <li>
+                    Genre: <span class="genre"></span>
+                  </li>
+                  <li>
+                    Release Date: <span class="release_date"></span>
+                  </li>
+                </ul>
+              </div>
+              <div class="cast_box">
+                <p class="contents_title">Cast</p>
+                <ul class="cast_list">
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+  
+          <div class="trailer_box">
+            <p class="contents_title">
+              Trailer
+            </p>
+            <video src="https://www.kmdb.or.kr/trailer/play/MK060920_P02.mp4" autoplay muted loop></video>
+          </div>
+        </article>
+        <article class="story_box">
+          <p class="contents_title">Storyline</p>
+          <p class="content_text"></p>
+        </article>
+      </section>
+    </div>
 
-        <div class="trailer_box">
-          <p class="contents_title">
-            Trailer
-          </p>
-          <video src="https://www.kmdb.or.kr/trailer/play/MK060920_P02.mp4" autoplay muted loop></video>
-        </div>
-      </article>
-      <article class="story_box">
-        <p class="contents_title">Storyline</p>
-        <p class="content_text"></p>
-      </article>
+    <section id="review_container">
+      
     </section>
   </main>
 </body>
