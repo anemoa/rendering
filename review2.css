@@ -2,8 +2,8 @@ body{
     background-color: #141414;
     /* height: 100vh;
     display: grid; */
-    place-items: center;
-    overflow: hidden;
+    /* place-items: center;
+    overflow: hidden; */
 }
 
 ul{
@@ -29,6 +29,7 @@ li{
 
 
 .poster_container{
+    width: 18%;
     max-width: 205px;
 }
 
@@ -38,12 +39,12 @@ li{
 
 
 .info_container{
+    width: 80%;
     max-width: 980px;
 }
 
 .sub_info_box{
-    display: flex;
-    justify-content: space-between;
+
 }
 .story_box{
     border-top: 1px solid #aaa;
@@ -51,13 +52,13 @@ li{
 
 
 .detail_info_box{
-    width: 75%;
-    max-width: 610px;
+    width: 100%;
 }
 
 
 .trailer_box{
-    max-width: 330px;
+    margin: 0 auto;
+    max-width: 80%;
 }
 .trailer_box video{
     width: 100%;
@@ -101,6 +102,87 @@ li{
     margin-bottom: 20px;
     color: #fff;
 }
+
+
+
+
+
+/* 리뷰 섹션 */
+
+#review_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.review_box{
+    width: 23%;
+    background: #eee;
+}
+
+
+
+
+
+
+
+
+
+
+/* 리뷰작성 모달창 */
+
+
+/* 리뷰 작성 모달 창 */
+.movie_review_modal_bg {
+    /*팝업 배경*/
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    /* overflow: hidden; */
+    background: rgba(0,0,0,0.5);
+}
+.movie_review_modal {
+    /*팝업*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+.button_close {
+    display: block;
+    padding: 10px 20px;
+    background-color: #B20710;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

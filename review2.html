@@ -11,6 +11,11 @@
 </head>
 <body>
   <main id="page_container">
+
+    <div class="trailer_box">
+      <video src="https://www.kmdb.or.kr/trailer/play/MK060920_P02.mp4" autoplay muted loop></video>
+    </div>
+
     <div id="movie_info_container">
       <section class="poster_container">
         <article class="poster_box"></article>
@@ -23,7 +28,7 @@
             <i class="rating__star far fa-star"></i>
             <i class="rating__star far fa-star"></i>
           </div>
-        </div>x
+        </div>
       </section>
   
       <section class="info_container">
@@ -60,12 +65,7 @@
             </div>
           </div>
   
-          <div class="trailer_box">
-            <p class="contents_title">
-              Trailer
-            </p>
-            <video src="https://www.kmdb.or.kr/trailer/play/MK060920_P02.mp4" autoplay muted loop></video>
-          </div>
+
         </article>
         <article class="story_box">
           <p class="contents_title">Storyline</p>
@@ -75,7 +75,68 @@
     </div>
 
     <section id="review_container">
-      
+      <button onclick="postReview();">리뷰 작성 버튼</button>
+      <div class="movie_review_modal_bg hidden">
+        <div class="movie_review_modal">
+            <form action="" name="review_post">
+                <textarea name="review_post" id="" cols="50" rows="20"></textarea>
+                <button type="submit">제출</button>
+                <button type="button" class="button_close" onclick="closeModal()">X</button>
+            </form>
+        </div>
+    </div>
+
+      <div class="review_box">
+        <span>유저 이름</span>
+        <span>별점 공간</span>
+        <span>좋아요 or 수정</span>
+        <p>
+          리뷰 내용 블라 블라
+        </p>
+        <p>
+          <span>날짜</span>
+          <button type="button">신고버튼</button>
+        </p>
+      </div>
+
+      <div class="review_box">
+        <span>유저 이름</span>
+        <span>별점 공간</span>
+        <span>좋아요 or 수정</span>
+        <p>
+          리뷰 내용 블라 블라
+        </p>
+        <p>
+          <span>날짜</span>
+          <button type="button">신고버튼</button>
+        </p>
+      </div>
+
+      <div class="review_box">
+        <span>유저 이름</span>
+        <span>별점 공간</span>
+        <span>좋아요 or 수정</span>
+        <p>
+          리뷰 내용 블라 블라
+        </p>
+        <p>
+          <span>날짜</span>
+          <button type="button">신고버튼</button>
+        </p>
+      </div>
+
+      <div class="review_box">
+        <span>유저 이름</span>
+        <span>별점 공간</span>
+        <span>좋아요 or 수정</span>
+        <p>
+          리뷰 내용 블라 블라
+        </p>
+        <p>
+          <span>날짜</span>
+          <button type="button">신고버튼</button>
+        </p>
+      </div>
     </section>
   </main>
 </body>

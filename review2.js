@@ -64,6 +64,9 @@ async function movieInfo(){
         const firstUrl = posterUrls[0];
 
         moviePoster.innerHTML = `<img src="${firstUrl}" alt="${movieShort.title}">`;
+
+
+        
       
         // 영화 예고편 가져오기
         const trailerUrl = new URL(movieShort.vods.vod[0].vodUrl);
@@ -135,36 +138,51 @@ async function movieInfo(){
   
 
 
+// 리뷰 작성 버튼
 
+const modal = document.querySelector('.movie_review_modal_bg');
 
-// 별점 주기 관련
-const ratingStars = [...document.getElementsByClassName("rating__star")];
-const ratingResult = document.querySelector(".rating__result");
-
-printRatingResult(ratingResult);
-
-function executeRating(stars, result) {
-   const starClassActive = "rating__star fas fa-star";
-   const starClassUnactive = "rating__star far fa-star";
-   const starsLength = stars.length;
-   let i;
-   stars.map((star) => {
-      star.onclick = () => {
-         i = stars.indexOf(star);
-
-         if (star.className.indexOf(starClassUnactive) !== -1) {
-            printRatingResult(result, i + 1);
-            for (i; i >= 0; --i) stars[i].className = starClassActive;
-         } else {
-            printRatingResult(result, i);
-            for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
-         }
-      };
-   });
+const postReview = () => {
+   modal.classList.remove('hidden');
+   modal.classList.add('visible');
 }
 
-function printRatingResult(result, num = 0) {
-   result.textContent = `${num} / 5`;
+const closeModal = () => {
+   modal.classList.add('hidden');
+   modal.classList.remove('visible');
 }
 
-executeRating(ratingStars, ratingResult);
+
+
+
+// // 별점 주기 관련
+// const ratingStars = [...document.getElementsByClassName("rating__star")];
+// const ratingResult = document.querySelector(".rating__result");
+
+// printRatingResult(ratingResult);
+
+// function executeRating(stars, result) {
+//    const starClassActive = "rating__star fas fa-star";
+//    const starClassUnactive = "rating__star far fa-star";
+//    const starsLength = stars.length;
+//    let i;
+//    stars.map((star) => {
+//       star.onclick = () => {
+//          i = stars.indexOf(star);
+
+//          if (star.className.indexOf(starClassUnactive) !== -1) {
+//             printRatingResult(result, i + 1);
+//             for (i; i >= 0; --i) stars[i].className = starClassActive;
+//          } else {
+//             printRatingResult(result, i);
+//             for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+//          }
+//       };
+//    });
+// }
+
+// function printRatingResult(result, num = 0) {
+//    result.textContent = `${num} / 5`;
+// }
+
+// executeRating(ratingStars, ratingResult);
